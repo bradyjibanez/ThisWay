@@ -4,10 +4,10 @@ from django.contrib import admin
 
 admin.autodiscover()
 
-import hello.views
+import thisWayDesign.views
 
 urlpatterns = [
-    path("", hello.views.index, name="index"),
-    path("db/", hello.views.db, name="db"),
+    path("", thisWayDesign.views.index, name="index"),
+    path("db/", thisWayDesign.views.db, name="db"),
     path("admin/", admin.site.urls),
 ]
