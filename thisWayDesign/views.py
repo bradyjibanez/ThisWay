@@ -5,15 +5,15 @@ from .models import Greeting, Landmark
 from .forms import landmarkForm
 import requests
 
-def getLandmark(request):
+'''def getLandmark(request):
 	landmarkURL = landmarkForm(request.POST or None)
 	if landmarkURL.is_valid():
 		landmarkURL = landmarkURL.cleaned_data['imageURL']
 		landmark = Landmark(landmarkURL)
-		return render(request, 'thisWayDesign/index.html', landmark)
+		return render(request, 'thisWayDesign/index.html', landmark)'''
 
 
-'''def index(request):
+def index(request):
 	return render(request, "index.html")
 
 def db(request):
@@ -23,4 +23,4 @@ def db(request):
 
     greetings = Greeting.objects.all()
 
-    return render(request, "db.html", {"greetings": greetings})'''
+    return render(request, "db.html", {"greetings": greetings})
