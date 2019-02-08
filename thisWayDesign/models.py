@@ -1,5 +1,5 @@
 from django.db import models
-#from thisWayDesign.findLandmark import getLandmark
+#from .findLandmark import getLandmark
 
 # Create your models here.
 '''class Landmark(models.Model):
@@ -9,4 +9,4 @@ from django.db import models
 		return self.landmark'''
 
 class Greeting(models.Model):
-    when = models.DateTimeField("date created", auto_now_add=True)'''
+    when = models.DateTimeField("date created", auto_now_add=True)
