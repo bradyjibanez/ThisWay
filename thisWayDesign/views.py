@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import Greeting, Landmark
-from .forms import landmarkForm
+from .models import Greeting#, Landmark
+#from .forms import landmarkForm
 import requests
 
 '''def getLandmark(request):
