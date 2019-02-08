@@ -1,5 +1,5 @@
 from django.db import models
-from findLandmark import getLandmark
+from .findLandmark import getLandmark
 
 # Create your models here.
 class Landmark(models.Model):
