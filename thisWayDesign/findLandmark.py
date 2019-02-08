@@ -3,9 +3,13 @@ from google.oauth2 import service_account
 from google.cloud import vision
 from google.cloud.vision import types
 from google.protobuf.json_format import MessageToDict
-import os
-import json
+import os, json, sys, django
 
+sys.path.append("/CloudAssignment2/thisWay")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "thisWay.settings")
+django.setup()
+
+from .models import Landmark
 
 def getLandmark(self, imageURL):
     # Read env data
