@@ -13,16 +13,19 @@ sys.path.append("/CloudAssignment2/thisWay")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "thisWay.settings")
 django.setup()
 
-from CloudAssignment2.thisWay.models import Landmark
+#from thisWay.models import Landmark
 
-def getLandmark(self, imageURL):
+def getLandmark(imageURL):
     # Read env data
-    credentials_raw = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
-
+    #jsonfile = open(os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"))
+    credentials_raw = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
+    
     # Generate credentials
-    service_account_info = json.loads(credentials_raw)
+    with open(credentials_raw, 'r') as cred:
+        creds = json.load(cred)
+    #service_account_info = json.loads(credentials_raw.read())
     credentials = service_account.Credentials.from_service_account_info(
-        service_account_info)
+        creds)#service_account_info)
 
     # Define a client, in this case Google's text to speech
     client = vision.ImageAnnotatorClient(credentials=credentials)
@@ -63,13 +66,18 @@ def getLandmark(self, imageURL):
         count += 1
         if words == "'latitude':" or words == "{'latitude':":
             lat = splitted[count][:-4]
+            location.append(lat)
 
     count = 0
     for words in splitted:
         count += 1
         if words == "'longitude':" or words == "{'longitude':":
             lon = splitted[count][:-4]
+            location.append(lon)
            
-    place = ' '.join(location)       
+    landMarkDetected = ' '.join(location)      
 
-    return place
+    return landMarkDetected
+
+#LM = getLandmark("https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg/240px-Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg")
+#print(LM)
