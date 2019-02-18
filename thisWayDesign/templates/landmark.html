@@ -42,14 +42,16 @@
         {% csrf_token %}
         {{ landmarkForm }}
   			<input id="imageURL" name="imageURL" type="text" size="100" style="border: solid 1px #6E6E6E; background-color:#b2b2b2" placeholder="Enter your landmark image link" size="35"/>
-  		</br>
-      </br>
-  		<form method="post" action="/index/">
-  			<input id="start" name="start" type="text" size="100" style="border: solid 1px #6E6E6E; background-color:#b2b2b2" placeholder="Enter your start point" size="35"/>
+  		</form>
 
   		</br>
-  		<input id="imageURL" input type="submit" class="button" value="Find a Way"/>
-      </form>
+
+  		<form method="post" action="/index/">
+  			<input id="start" name="start" type="text" size="100" style="border: solid 1px #6E6E6E; background-color:#b2b2b2" placeholder="Enter your start point" size="35"/>
+	  	</form>
+
+  		</br>
+      {{ landmark }}
   		</br>
   	</center>
 </body>
