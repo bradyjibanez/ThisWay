@@ -44,7 +44,7 @@ ROOT_URLCONF = "thisWay.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ['thisWayDesign/templates/'],
+        "DIRS": [''],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
