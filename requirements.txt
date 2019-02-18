@@ -1,5 +1,6 @@
 django
 google-cloud
+google-cloud-vision
 gunicorn
 django-heroku
 requests
