@@ -2,8 +2,8 @@ import os, json, sys, django
 #from django.core.serializers.json import DjangoJSONEncoder
 from django.conf import settings
 from google.oauth2 import service_account
-from google-cloud import vision
-from google-cloud.vision import types
+from google.cloud import vision
+from google.cloud.vision import types
 from google.protobuf.json_format import MessageToDict
 
 #settings.configure(DEBUG=True) SAYS SETTINGS ALREADY CONFIGURED
