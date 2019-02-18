@@ -25,11 +25,11 @@ def getLandmarkURL(request):
 def index(request):
 	return render(request, "index.html")
 
-'''def db(request):
+def db(request):
 
     greeting = Greeting()
     greeting.save()
 
     greetings = Greeting.objects.all()
 
-    return render(request, "db.html", {"greetings": greetings})'''
+    return render(request, "db.html", {"greetings": greetings})

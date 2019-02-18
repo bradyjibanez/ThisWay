@@ -10,5 +10,5 @@ class Landmark(models.Model):
 	def __str__(self):
 		return self.landmark
 
-#class Greeting(models.Model):
-#    when = models.DateTimeField("date created", auto_now_add=True)
+class Greeting(models.Model):
+    when = models.DateTimeField("date created", auto_now_add=True)
