@@ -11,7 +11,7 @@ def getLandmarkURL(request):
 	if landmarkURL.is_valid():
 		landmarkURL = landmarkURL.cleaned_data['imageURL']
 		landmark = Landmark.giveURL(landmarkURL)
-		if landmark == "Nothing" or landmark == None:
+		if landmark == "Nothing" or landmark == None or landmark == "UNKNOWN_LANDMARK":
 			landmark = "We couldn't find a landmark from that URL. Hit reset and try again with another."
 			landmark_dict = {
 				'landmark': landmark
@@ -22,6 +22,7 @@ def getLandmarkURL(request):
 				'landmark': landmark
 			}
 			return render(request, 'landmark.html', landmark_dict)
+	return render(request, 'landmark.html', {'landmark': "Error in the computer vision. Please reset and try again."})
 
 def index(request):
 	return render(request, "index.html")
