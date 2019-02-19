@@ -75,9 +75,9 @@ def getLandmark(imageURL):
            
     landMarkDetected = ' '.join(location)
 
-    if landMarkDetected == None:
+    if len(landMarkDetected) < 2:
         Nothing = "Nothing"      
-        return nothing
+        return Nothing
     else:
         return landMarkDetected
 

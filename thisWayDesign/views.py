@@ -16,11 +16,12 @@ def getLandmarkURL(request):
 			landmark_dict = {
 				'landmark': landmark
 			}
+			return render(request, 'landmark.html', landmark_dict)
 		else:
 			landmark_dict = {
 				'landmark': landmark
 			}
-	return render(request, 'landmark.html', landmark_dict)
+			return render(request, 'landmark.html', landmark_dict)
 
 def index(request):
 	return render(request, "index.html")
