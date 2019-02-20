@@ -31,7 +31,7 @@ def processSubmission(request):
 				userAddy,	
 				fail_silently=False)
 
-		return render(request, 'landmark.html', {'landmark': "LANDMARK SEEN: "+landmark, 'directions': directions})
+		return render(request, 'landmark.html', {'LANDMARKSEEN': "LANDMARK SEEN:", 'landmark': landmark, 'DIRECTION': "DIRECTIONS (sent to your given email):", 'directions': directions})
 	return render(request, 'landmark.html', {'landmark': "Error in your inputted data. Please reset and try again."})
 
 def index(request):

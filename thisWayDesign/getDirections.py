@@ -33,5 +33,5 @@ def findDirections(startPoint, endPoint):
 				i = i+1
 		return route
 	except IndexError:
-		error = "Sorry, we are unable to find a terrain permitting path to that landmark."
+		error = ["Sorry, we are unable to find a terrain permitting path to that landmark."]
 		return error

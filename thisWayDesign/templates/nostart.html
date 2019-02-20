@@ -27,32 +27,10 @@
 </head>
 <body>
   	<center><p><span class="glyphicon glyphicon-plane"></span>thisWay</p>
-  	<h4>...find out how to get to any landmark!</h4>
-  	</br>
-    <blockquote>thisWay is an app that tells you how to get from A to B. It allows you to input your email, an image link showing a landmark, and your start point (in the format of "city, country"). It will then use some fancy computer stuff to give you directions if you want to go see it. It might cost a lot to actually go, but hey, still works.</blockquote>
     </br>
-  	<center>
-  		<form method="post" action="/index/">
-  			<input id="email" name="email" type="text" size="100" style="border: solid 1px #6E6E6E; background-color:#b2b2b2" placeholder="Enter your email" size="35"/>
-  		</form>
-
-	  	</br>
-
-  		<form action="{% url 'landmark' %}" method="post">
-        {% csrf_token %}
-        {{ landmarkForm }}
-  			<input id="imageURL" name="imageURL" type="text" size="100" style="border: solid 1px #6E6E6E; background-color:#b2b2b2" placeholder="Enter your landmark image link" size="35"/>
-  		</form>
-
-  		</br>
-
-  		<form method="post" action="/index/">
-  			<input id="start" name="start" type="text" size="100" style="border: solid 1px #6E6E6E; background-color:#b2b2b2" placeholder="Enter your start point" size="35"/>
-	  	</form>
-      </br>
-      {{ nostart }}
-  		</br>
-  	</center>
+    {{ nostart }}
+		</br>
+	</center>
 </body>
 </html>
 {% endblock %}
