@@ -20,9 +20,7 @@ def findDirections(startPoint, endPoint):
 		route = []
 		for leg in directions['legs']:
 			startAddress = leg['start_address']
-	#		print("Start Address:", startAddress)
 			endAddress = leg['end_address']
-	#		print("End Address:", endAddress)
 			for step in leg['steps']:
 				html_instructions = str(step['html_instructions'])
 				html_instructions = html_instructions.replace('<b>', '')
@@ -32,7 +30,6 @@ def findDirections(startPoint, endPoint):
 				html_instructions = html_instructions.replace('</div>', '')
 				html_instructions = html_instructions.replace('E/', '')
 				route.append(html_instructions)
-	#			print("STEP {} {}".format(i ,html_instructions))
 				i = i+1
 		return route
 	except IndexError:

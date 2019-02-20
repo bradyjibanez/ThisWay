@@ -15,5 +15,7 @@ class Directions(models.Model):
 		directions = findDirections(startPoint, endPoint)
 		return directions
 
-class Greeting(models.Model):
-    when = models.DateTimeField("date created", auto_now_add=True)
+class Submission (models.Model):
+	image = models.CharField(max_length=1000)
+	startPoint = models.CharField(max_length=100)
+	userAddy = models.CharField(max_length=100)

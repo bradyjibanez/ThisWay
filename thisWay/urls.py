@@ -8,8 +8,6 @@ import thisWayDesign.views
 
 urlpatterns = [
     path("", thisWayDesign.views.index, name="index"),
-    path("landmark/", thisWayDesign.views.getLandmarkURL, name="landmark"),
-    path("nostart/", thisWayDesign.views.getDirections, name="nostart"),
-    path("db/", thisWayDesign.views.db, name="db"),
+    path("landmark/", thisWayDesign.views.processSubmission, name="landmark"),
     path("admin/", admin.site.urls),
 ]

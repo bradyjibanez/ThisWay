@@ -34,8 +34,9 @@
   	<center>
   		<form action="{% url 'landmark' %}" method="post">
         {% csrf_token %}
+        {{ submissionForm }}
 
-  			<input id="email" name="email" type="text" size="100" style="border: solid 1px #6E6E6E; background-color:#b2b2b2" placeholder="Enter your email" size="35"/>
+  			<input id="usermail" name="usermail" type="text" size="100" style="border: solid 1px #6E6E6E; background-color:#b2b2b2" placeholder="Enter your email" size="35"/>
 
 	  	</br>
       </br>
