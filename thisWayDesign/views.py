@@ -5,7 +5,7 @@ from google.cloud import storage
 from google.oauth2 import service_account
 from .models import Landmark, Directions
 from .forms import submissionForm
-import requests, json
+import requests, json, os
 
 def processSubmission(request):
 	landmark = None
