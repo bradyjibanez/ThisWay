@@ -36,7 +36,7 @@ Your app will run on [localhost:5000](http://localhost:5000/).
 ## Built With
 
 * [Django](https://www.djangoproject.com/) - The web framework used
-* [Herooku](https://devcenter.heroku.com/articles/getting-started-with-python#prepare-the-app) - PaaS provider for Django installations, configuration, and distribution
+* [Heroku](https://devcenter.heroku.com/articles/getting-started-with-python#prepare-the-app) - PaaS provider for Django installations, configuration, and distribution
 * [gunicorn](https://gunicorn.org/) - Synchoronous Python wsgi/Http request responding server. Configured and maintained by Heroku and the Procfile (or for windows, Procfile.windows) detailed here. 
 
 ## Authors
