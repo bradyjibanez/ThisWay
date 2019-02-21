@@ -83,7 +83,7 @@ def getLandmark(imageURL):
 
         LANDMARK = ''.join(LANDMARK)
 
-        #If the JSON garbage didn't have anything, it'll generate a list less than 2, say so such that we can ignore the result
+        #If JSON didn't have anything, it'll generate a list less than 2, say so such that we can ignore the result
         if len(landMarkDetected) < 2:
             Nothing = "Nothing"      
             return Nothing

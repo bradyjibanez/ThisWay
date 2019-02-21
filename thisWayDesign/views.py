@@ -9,6 +9,7 @@ import requests, json, os
 
 landmarksref = []
 
+#Used to process form data recieved from user
 def processSubmission(request):
 	landmark = None
 	submission = submissionForm(request.POST or None)
@@ -19,7 +20,6 @@ def processSubmission(request):
 		landmark = Landmark.giveURL(landmarkURL)
 
 		#Google Cloud Storage to create reference for past searched landmarks by other users
-		#updateStorage(landmark)
 		global landmarksref
 		landmarksref.append(landmark)
 
@@ -44,20 +44,25 @@ def processSubmission(request):
 		return render(request, 'landmark.html', {'LANDMARKSEEN': "LANDMARK SEEN:", 'landmark': landmark, 'DIRECTION': "DIRECTIONS (sent to your given email):", 'directions': directions})
 	return render(request, 'landmark.html', {'landmark': "Error in your inputted data. Please reset and try again."})
 
+#Function allowing for Google Cloud Storage maintenance of recently searched landmarks
 def updateStorage(landmark):
 
+	#Open local file to hold all referenced landmarks
 	with open("landmarksRequested.txt", "a+") as text_file:
 		text_file.write(landmark+"\r\n")
 
+	#Authenticate and access Google Cloud Storage 	
 	credentials_raw = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
 	service_account_info = json.loads(credentials_raw)
 	storageCredentials = service_account.Credentials.from_service_account_info(service_account_info)
 
+	#Reference Google Cloud Storage and update bucket
 	client = storage.Client(credentials=storageCredentials)
 	bucket = client.get_bucket('requested-landmarks')
 	blob = bucket.blob('landmarksRequested.txt')
 	blob.upload_from_filename('landmarksRequests.txt')
 
+#Returns refreshed home page with previously rerenced landmarks by all users
 def index(request):
 	global landmarksref
 	return render(request, "index.html", {'LPS': "LANDMARKS PREVIOUSLY SEARCHED:", 'landmarksref': landmarksref})
