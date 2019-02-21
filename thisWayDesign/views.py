@@ -60,7 +60,7 @@ def updateStorage(landmark):
 	}'''
 
 	credentials_raw = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
-    service_account_info = json.loads(credentials_raw)
+	service_account_info = json.loads(credentials_raw)
 	storageCredentials = service_account.Credentials.from_service_account_info(service_account_info)
 
 	client = storage.Client(credentials=storageCredentials)
