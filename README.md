@@ -1,45 +1,44 @@
-# Python: Getting Started
+# thisWay: a PaaS Heroku implemented Django Application
 
-A barebones Django app, which can easily be deployed to Heroku.
+thisWay is an application running on a Heroku PaaS Django structured application. The app takes 
+advantage of Google Cloud APIs, particularily google-cloud-vision, google-cloud-storage, and the
+google-cloud-directions functionality of googlemaps. It also uses google smtp notification service.
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+It uses these four API functions in unison to allow for users to enter their email, an image of a
+landmark, and a start point defined through text. The API implementation then takes all of this submitted
+data and returns first a computer vision produced recognition of what and where the landmark is, followed
+by driving directions to the landmark from the provided start point. It also sends an email to the user's
+prvided email address containing these directions, and saves all previously searched landmarks by other 
+users for reference upon return to the site. 
 
 ## Running Locally
 
-Make sure you have Python 3.7 [installed locally](http://install.python-guide.org). To push to Heroku, you'll need to install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli), as well as [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
+In order to run this application locally, simply clone the repository to any given machine with Heroku
+and Python3 installed. Upon navigating to the source directory, a user simply must ensure all of the 
+requirements detailed in requirements.txt are synchronized within their local Python installation, should 
+any errors occur in the installation of the requirements packages. Python errors will tell you if 
+anything is missing. 
+
+Heroku config environment variables are provided here and synced to your local machine for ease of 
+installation and running. To run in a Linux environment with Heroku installed, run:
 
 ```sh
-$ git clone https://github.com/heroku/python-getting-started.git
-$ cd python-getting-started
-
-$ python3 -m venv getting-started
+$ git clone https://github.com/UOITEngineering3/assignment2winter2019-bradyjibanez
+$ cd assignment2winter2019-bradyjibanez
 $ pip install -r requirements.txt
-
-$ createdb python_getting_started
-
 $ python manage.py migrate
 $ python manage.py collectstatic
-
 $ heroku local
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+Your app should will run on [localhost:5000](http://localhost:5000/).
 
-## Deploying to Heroku
+## Built With
 
-```sh
-$ heroku create
-$ git push heroku master
+* [Django](https://www.djangoproject.com/) - The web framework used
+* [Herooku](https://devcenter.heroku.com/articles/getting-started-with-python#prepare-the-app) - PaaS provider for Django installations, configuration, and distribution
+* [gunicorn](https://gunicorn.org/) - Synchoronous Python wsgi/Http request responding server. Configured and maintained by Heroku and the Procfile (or for windows, Procfile.windows) detailed here. 
 
-$ heroku run python manage.py migrate
-$ heroku open
-```
-or
+## Authors
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Python on Heroku, see these Dev Center articles:
-
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
+* **Brady Ibanez** - *Cloud based implementation and app functionality* 
