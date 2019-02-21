@@ -53,6 +53,20 @@
 
   		<input id="submit" input type="submit" class="button" value="Find a Way"/>
       </form>
+
+      </br>
+      </br>
+
+      {{ LPS }}
+
+      </br>
+      </br>
+
+      {% for landmark in landmarksref %}
+      {{ landmark }}
+      </br>
+      {% endfor %}
+
   	</center>
 </body>
 </html>

@@ -7,6 +7,8 @@ from .models import Landmark, Directions
 from .forms import submissionForm
 import requests, json, os
 
+landmarksref = []
+
 def processSubmission(request):
 	landmark = None
 	submission = submissionForm(request.POST or None)
@@ -18,6 +20,8 @@ def processSubmission(request):
 
 		#Google Cloud Storage to create reference for past searched landmarks by other users
 		#updateStorage(landmark)
+		global landmarksref
+		landmarksref.append(landmark)
 
 		#Return error message if vision can't identify landmark
 		if landmark == "Nothing" or landmark == None or landmark == "UNKNOWN_LANDMARK":
@@ -54,7 +58,6 @@ def updateStorage(landmark):
 	blob = bucket.blob('landmarksRequested.txt')
 	blob.upload_from_filename('landmarksRequests.txt')
 
-	#blob.download_to_filename('landmarksRequested.txt')
-
 def index(request):
-	return render(request, "index.html")
+	global landmarksref
+	return render(request, "index.html", {'LPS': "LANDMARKS PREVIOUSLY SEARCHED:", 'landmarksref': landmarksref})

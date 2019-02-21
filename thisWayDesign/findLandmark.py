@@ -11,8 +11,6 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "thisWay.settings")
 #Method for finding landmark in user provided image from Google Cloud Vision
 def getLandmark(imageURL):
     # Read env data for google api credentials
-    #CHANGE THIS ALL BACK TO ENVIRON VAR FOR CREDS IF POSSIBLE IN HEROKU STILL
-    #DO THE SAME FOR STORAGE
     credentials_raw = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
     service_account_info = json.loads(credentials_raw)
     credentials = service_account.Credentials.from_service_account_info(service_account_info)
