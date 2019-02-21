@@ -17,7 +17,7 @@ def processSubmission(request):
 		landmark = Landmark.giveURL(landmarkURL)
 
 		#Google Cloud Storage to create reference for past searched landmarks by other users
-		#updateStorage(landmark)
+		updateStorage(landmark)
 
 		#Return error message if vision can't identify landmark
 		if landmark == "Nothing" or landmark == None or landmark == "UNKNOWN_LANDMARK":
@@ -58,7 +58,7 @@ def updateStorage(landmark):
 	  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
 	  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/storage-service-account%40landmarkdetection.iam.gserviceaccount.com"
 	}'''
-	
+
 	credentials_raw = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
     service_account_info = json.loads(credentials_raw)
 	storageCredentials = service_account.Credentials.from_service_account_info(service_account_info)
