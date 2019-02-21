@@ -31,7 +31,7 @@ $ python manage.py collectstatic
 $ heroku local
 ```
 
-Your app should will run on [localhost:5000](http://localhost:5000/).
+Your app will run on [localhost:5000](http://localhost:5000/).
 
 ## Built With
 
