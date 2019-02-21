@@ -11,6 +11,11 @@ by driving directions to the landmark from the provided start point. It also sen
 prvided email address containing these directions, and saves all previously searched landmarks by other 
 users for reference upon return to the site. 
 
+Functions implementing landmark recognition computer vision are detailed in /thisWayDesign/findLandmark.py
+Functions implementing direction definition are detailed in /thisWayDesign/getDirections.py
+Functionality of smtp interaction is detailed in /thisWayDesign/views.py within the processSubmission method
+Functionality of landmark storage memory is implemented in /thisWayDesign/views.py within the updateStorage method
+
 ## Running Locally
 
 In order to run this application locally, simply clone the repository to any given machine with Heroku
