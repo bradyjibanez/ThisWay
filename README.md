@@ -12,8 +12,11 @@ prvided email address containing these directions, and saves all previously sear
 users for reference upon return to the site. 
 
 Functions implementing landmark recognition computer vision are detailed in /thisWayDesign/findLandmark.py
+
 Functions implementing direction definition are detailed in /thisWayDesign/getDirections.py
+
 Functionality of smtp interaction is detailed in /thisWayDesign/views.py within the processSubmission method
+
 Functionality of landmark storage memory is implemented in /thisWayDesign/views.py within the updateStorage method
 
 ## Running Locally
