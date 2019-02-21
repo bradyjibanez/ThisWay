@@ -45,6 +45,7 @@ def updateStorage(landmark):
 	with open("landmarksRequested.txt", "a+") as text_file:
 		text_file.write(landmark+"\r\n")
 
+	'''	
 	service_account_info = {
 	  "type": "service_account",
 	  "project_id": "landmarkdetection",
@@ -56,8 +57,10 @@ def updateStorage(landmark):
 	  "token_uri": "https://oauth2.googleapis.com/token",
 	  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
 	  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/storage-service-account%40landmarkdetection.iam.gserviceaccount.com"
-	}
-
+	}'''
+	
+	credentials_raw = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+    service_account_info = json.loads(credentials_raw)
 	storageCredentials = service_account.Credentials.from_service_account_info(service_account_info)
 
 	client = storage.Client(credentials=storageCredentials)
