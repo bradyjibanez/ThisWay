@@ -24,9 +24,8 @@ def processSubmission(request):
 		landmarksref.append(landmark)
 
 		#Return error message if vision can't identify landmark
-		if landmark == "Nothing" or landmark == None or landmark == "UNKNOWN_LANDMARK":
+		if landmark == None or landmark == "UNKNOWN_LANDMARK":
 			return render(request, 'landmark.html', {'landmark': "We couldn't find a landmark from that URL. Hit reset and try again with another."})
-
 
 		#Google directions API to find directions 
 		startPoint = submission.cleaned_data['start']
@@ -34,15 +33,21 @@ def processSubmission(request):
 
 		#Google smtp request to send directions
 		userAddy = [submission.cleaned_data['usermail']]
-		#directions = '\n'.join(directions)
-		send_mail('your thisWay! directions',
+
+		#Return error message for invalid URL
+		if (landmark == "Not a valid landmark image URL"):
+			return render(request, 'landmark.html', {'landmark': landmark})
+		#Return error message for invalid start point
+		elif (directions == "Sorry, your start point wasn't recognized."):
+			return render(request, 'landmark.html', {'landmark': directions})
+		#Return values found and send directions to email if all good
+		else:		
+			send_mail('your thisWay! directions',
 				'Your Directions to '+landmark+'!\n\n'+str(directions),
 				'thiswayfollowup@gmail.com',
 				userAddy,	
 				fail_silently=False)
-
-		return render(request, 'landmark.html', {'LANDMARKSEEN': "LANDMARK SEEN:", 'landmark': landmark, 'DIRECTION': "DIRECTIONS (sent to your given email):", 'directions': directions})
-	return render(request, 'landmark.html', {'landmark': "Error in your inputted data. Please reset and try again."})
+			return render(request, 'landmark.html', {'LANDMARKSEEN': "LANDMARK SEEN:", 'landmark': landmark, 'DIRECTION': "DIRECTIONS (sent to your given email):", 'directions': directions})
 
 #Function allowing for Google Cloud Storage maintenance of recently searched landmarks
 def updateStorage(landmark):
