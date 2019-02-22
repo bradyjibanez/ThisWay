@@ -12,8 +12,9 @@ def findDirections(startPoint, endPoint):
 	finish = endPoint
 
 	now = datetime.now()
-	directions = gmaps.directions(start, finish, mode="driving", departure_time=now)
+	#directions = gmaps.directions(start, finish, mode="driving", departure_time=now)
 	try:
+		directions = gmaps.directions(start, finish, mode="driving", departure_time=now)
 		directions = directions[0]
 
 		i=1
@@ -32,6 +33,6 @@ def findDirections(startPoint, endPoint):
 				route.append(html_instructions)
 				i = i+1
 		return route
-	except IndexError:
-		error = ["Sorry, we are unable to find a terrain permitting path to that landmark."]
+	except:
+		error = "Sorry, your start point wasn't recognized."
 		return error
