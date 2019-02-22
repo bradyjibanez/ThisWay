@@ -85,7 +85,7 @@ def getLandmark(imageURL):
 
         #If JSON didn't have anything, it'll generate a list less than 2, say so such that we can ignore the result
         if len(landMarkDetected) < 2:
-            Nothing = "Nothing"      
+            Nothing = "Not a valid landmark image URL"      
             return Nothing
         #If longer than 2, it's good. Maybe. More conditions in the View playing with the results that guarantee no mess up. 
         else:
