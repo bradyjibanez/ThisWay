@@ -41,6 +41,10 @@ $ heroku local
 
 Your app will run on [localhost:5000](http://localhost:5000/).
 
+## Remote Example
+
+This way is available for use currently through Heroku @ http://cloudassignment2ibanez.herokuapp.com/
+
 ## Built With
 
 * [Django](https://www.djangoproject.com/) - The web framework used
